@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: django_app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DJANGO_DB_HOST=db
+      - DJANGO_DB_PORT=5432
+      - DJANGO_DB_NAME=merchant
+      - DJANGO_DB_USER=merchantUser
+      - DJANGO_DB_PASSWORD=1234
+      - DB_TYPE=POSTGRES
+    networks:
+      - merchantnetwork
+
+  db:
+    image: postgres:latest
+    container_name: postgres_db_merchant
+    environment:
+      POSTGRES_DB: merchant
+      POSTGRES_USER: merchantUser
+      POSTGRES_PASSWORD: 1234
+    networks:
+      - merchantnetwork
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+networks:
+  merchantnetwork:
+    driver: bridge
+
+volumes:
+  postgres_data:

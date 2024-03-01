@@ -18,62 +18,71 @@ This is a simple web application to manage a list of merchants. It allows you to
 - Django Rest Framework (3.14.0)
 
 ### Installation
-
-1. Clone the repository:
-
-    ```bash
-    git clone https://github.com/yourusername/merchant-list.git
-    ```
-
-2. Navigate to the project directory:
-
-    ```bash
-    cd merchant-list
-    ```
-
-3. Create a virtual environment (optional but recommended):
-
-    ```bash
-    python -m venv venv
-    ```
-
-4. Activate the virtual environment:
-
-    - On Windows:
+#### Docker:
+    1. Dokcer with Postgres
+        ```bash
+        docker-compose -f docker-compose-postgres.yml up --build 
+        ```
+    2. Dokcer with SQLIite
+        ```bash
+        docker-compose -f docker-compose-sqlite.yml up --build   
+        ```
+#### Non Docker:
+    1. Clone the repository:
 
         ```bash
-        venv\Scripts\activate
+        git clone https://github.com/yourusername/merchant-list.git
         ```
 
-    - On macOS and Linux:
+    2. Navigate to the project directory:
 
         ```bash
-        source venv/bin/activate
+        cd merchant-list
         ```
 
-5. Install dependencies:
+    3. Create a virtual environment (optional but recommended):
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+        ```bash
+        python -m venv venv
+        ```
 
-6. Apply migrations:
+    4. Activate the virtual environment:
 
-    ```bash
-    python manage.py migrate
-    ```
+        - On Windows:
 
-7. Load static files:
+            ```bash
+            venv\Scripts\activate
+            ```
 
-    ```bash
-    python manage.py collectstatic
-    ```
+        - On macOS and Linux:
 
-8. Run the development server:
+            ```bash
+            source venv/bin/activate
+            ```
 
-    ```bash
-    python manage.py runserver
-    ```
+    5. Install dependencies:
+
+        ```bash
+        pip install -r requirements.txt
+        ```
+
+    6. Apply migrations:
+
+        ```bash
+        python manage.py migrate
+        ```
+
+    7. Load static files:
+
+        ```bash
+        python manage.py collectstatic
+        ```
+
+    8. Run the development server:
+
+        ```bash
+        python manage.py runserver
+        ```
 
 9. Open a web browser and go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to view the application.
 
