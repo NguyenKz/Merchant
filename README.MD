@@ -1,6 +1,4 @@
-#
-Merchant List
-#
+# Merchant List
 
 This is a simple web application to manage a list of merchants. It allows you to perform CRUD (Create, Read, Update, Delete) operations on merchant records.
 
@@ -10,11 +8,14 @@ This is a simple web application to manage a list of merchants. It allows you to
 - CSS (Bootstrap)
 - JavaScript (jQuery)
 - Django (Backend)
+- Django Rest Framework
+- SQLite (Database)
 
 ### Prerequisites
 
-- Python (3.6 or higher)
-- Django (3.0 or higher)
+- Python (3.10 or higher)
+- Django (5.0.2)
+- Django Rest Framework (3.14.0)
 
 ### Installation
 
@@ -75,6 +76,15 @@ This is a simple web application to manage a list of merchants. It allows you to
     ```
 
 9. Open a web browser and go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to view the application.
+
+### Database
+
+This project uses SQLite as the default database. The SQLite database file is created automatically during the migration process.
+
+### TODO
+
+- [ ] **Switch to PostgreSQL:** Consider migrating to PostgreSQL for production use.
+  
 
 ### Usage
 
