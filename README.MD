@@ -29,6 +29,8 @@ This is a simple web application to manage a list of merchants. It allows you to
     ```bash
     docker-compose -f docker-compose-sqlite.yml up --build   
     ```
+##### Note:
+1. Open a web browser and go to http://127.0.0.1:8000/ to view the application.
 
 #### Non Docker
 1. Clone the repository:
