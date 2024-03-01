@@ -66,7 +66,5 @@ class MerchantSerializer(serializers.ModelSerializer):
                 if field in attrs and hasattr(self.instance,field) and getattr(self.instance,field,None)==attrs[field]:
                     attrs.pop(field)
             
-            if not attrs:
-                raise
                 
         return super().validate(attrs)
