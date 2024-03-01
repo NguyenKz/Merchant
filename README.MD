@@ -111,7 +111,7 @@ This project uses SQLite as the default database. The SQLite database file is cr
 
 #### List and Create Merchants
 
-- Endpoint: `merchant/api/`
+- Endpoint: `http://127.0.0.1:8000/merchant/api/`
 - Method: 
     - `GET` (List)
         - Response Example:
@@ -163,7 +163,7 @@ This project uses SQLite as the default database. The SQLite database file is cr
 
 #### Retrieve, Update, and Destroy Merchant
 
-- Endpoint: `merchant/api/<int:pk>/`
+- Endpoint: `http://127.0.0.1:8000/merchant/api/<int:pk>/`
 - Method: 
     - `GET` (Retrieve)
         - Response Example:
