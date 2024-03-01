@@ -63,8 +63,9 @@ This is a simple web application to manage a list of merchants. It allows you to
     ```
 
 7. Load static files:
+
     ```bash
-    python manage.py collectstatic 
+    python manage.py collectstatic
     ```
 
 8. Run the development server:
@@ -78,8 +79,98 @@ This is a simple web application to manage a list of merchants. It allows you to
 ### Usage
 
 1. Open `merchants_list.html` in a web browser from [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
-        - Get list merchants.
-        - Create, edit, or delete merchants as needed.
+    - Get list merchants.
+    - Create, edit, or delete merchants as needed.
+
+### Endpoints
+
+#### List and Create Merchants
+
+- Endpoint: `merchant/api/`
+- Method: 
+    - `GET` (List)
+        - Response Example:
+        ```json
+        [
+            {
+                "id": 5,
+                "created_at": "2024-02-29 15:21",
+                "updated_at": "2024-03-01 02:18",
+                "name": "Trần Thảo Nguyên",
+                "description": "tran thao nguyen",
+                "description_html": "haha",
+                "email": "yeu.mobi@gmail.com",
+                "phone_number": "+14324242424"
+            },
+            {
+                "id": 7,
+                "created_at": "2024-02-29 17:21",
+                "updated_at": "2024-02-29 17:21",
+                "name": "Trần Thảo Nguyên",
+                "description": "tran thao nguyen",
+                "description_html": "haha",
+                "email": "yeu.obi@gmail.com",
+                "phone_number": "+14324242427"
+            },
+            {
+                "id": 8,
+                "created_at": "2024-03-01 02:19",
+                "updated_at": "2024-03-01 02:20",
+                "name": "Trần Thảo Nguyên",
+                "description": "",
+                "description_html": "",
+                "email": "ttnguyenkz@gmail.com",
+                "phone_number": "+84234567890"
+            }
+        ]
+        ```
+    - `POST` (Create)
+        - Body:
+        ```json
+            {
+               "name": "new name",
+               "description":"new description",
+               "description_html":"new description_html",
+               "email":"new email",
+               "phone_number":"new phone_number",
+            }
+        ```
+
+#### Retrieve, Update, and Destroy Merchant
+
+- Endpoint: `merchant/api/<int:pk>/`
+- Method: 
+    - `GET` (Retrieve)
+        - Response Example:
+        ```json
+        {
+            "id": 5,
+            "created_at": "2024-02-29 15:21",
+            "updated_at": "2024-03-01 02:18",
+            "name": "Trần Thảo Nguyên",
+            "description": "tran thao nguyen",
+            "description_html": "haha",
+            "email": "yeu.mobi@gmail.com",
+            "phone_number": "+14324242424"
+        }
+        ```
+    - `PATCH` (Update)
+        - Body: 
+            ```json
+            {
+               "name": "new name",
+               "description":"new description",
+               "description_html":"new description_html",
+               "email":"new email",
+               "phone_number":"new phone_number",
+            }
+            ```
+    - `DELETE` (Destroy)
+
+#### Render Merchant List Page
+
+- Endpoint: `/`
+- Method: `GET`
 
 ### Contributing
 
@@ -88,5 +179,3 @@ Contributions are welcome! If you find any issues or have improvements, feel fre
 ### License
 
 This project is licensed under the [MIT License](LICENSE).
-
-`
