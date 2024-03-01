@@ -27,6 +27,8 @@ services:
       POSTGRES_DB: merchant
       POSTGRES_USER: merchantUser
       POSTGRES_PASSWORD: 1234
+    ports:
+      - "5433:5432"
     networks:
       - merchantnetwork
     volumes:

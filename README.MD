@@ -16,6 +16,7 @@ This is a simple web application to manage a list of merchants. It allows you to
 - Python (3.10 or higher)
 - Django (5.0.2)
 - Django Rest Framework (3.14.0)
+- psycopg2 (2.9.1 or higher)
 
 ### Installation
 

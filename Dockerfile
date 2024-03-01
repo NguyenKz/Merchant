@@ -19,5 +19,8 @@ RUN python manage.py collectstatic --noinput
 # Expose the port the app runs on
 EXPOSE 8000
 
+# Install wait-for-it script
+ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /usr/local/bin/wait-for-it
+RUN chmod +x /usr/local/bin/wait-for-it
 # Define the command to run your application
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["sh", "-c", "wait-for-it db:5432 -- python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
