@@ -95,7 +95,8 @@ This project uses SQLite as the default database. The SQLite database file is cr
 
 ### TODO
 
-- [ ] **Switch to PostgreSQL:** Consider migrating to PostgreSQL for production use.
+- [x] **Switch to PostgreSQL:** Consider migrating to PostgreSQL for production use.
+- [ ] **Load Config from .env file**
   
 
 ### Usage
