@@ -1,8 +1,8 @@
 # serializers.py
 from rest_framework import serializers
 from .models import Merchant
-from phonenumber_field.validators import validate_international_phonenumber
 from django.conf import settings
+from cores.utlis import validate_phone_number
 class MerchantSerializer(serializers.ModelSerializer):
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
@@ -33,15 +33,15 @@ class MerchantSerializer(serializers.ModelSerializer):
             return value
         if not value.startswith("+"):
             raise serializers.ValidationError("Phone number must start with '+'")
-        validate_international_phonenumber(value)
-        
+        if not validate_phone_number(phone_number=value):
+            raise serializers.ValidationError("The phone number is invalid.")
         instance:Merchant = Merchant.objects.filter(phone_number=value).first()
         if instance:
             if self.instance and instance.pk!=self.instance.pk or self.instance is None:
                 raise serializers.ValidationError("Phone already exists.")
         return value
       
-    def validate(self, attrs):
+    def validate(self, attrs:dict):
 
         email = self.instance.email if self.instance else None
         phone_number = self.instance.phone_number if self.instance else None
@@ -53,4 +53,20 @@ class MerchantSerializer(serializers.ModelSerializer):
         
         if all([not email, not phone_number]):
             raise serializers.ValidationError({"email":"Email and phone can not be empty at the same time."})
+        
+        if self.instance:
+            all_fields = [
+                "name",
+                "description",
+                "description_html",
+                "email",
+                "phone_number"
+            ]
+            for field in all_fields:
+                if field in attrs and hasattr(self.instance,field) and getattr(self.instance,field,None)==attrs[field]:
+                    attrs.pop(field)
+            
+            if not attrs:
+                raise
+                
         return super().validate(attrs)

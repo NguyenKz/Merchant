@@ -62,21 +62,24 @@ This is a simple web application to manage a list of merchants. It allows you to
     python manage.py migrate
     ```
 
-7. Run the development server:
+7. Load static files:
+    ```bash
+    python manage.py collectstatic 
+    ```
+
+8. Run the development server:
 
     ```bash
     python manage.py runserver
     ```
 
-8. Open a web browser and go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to view the application.
+9. Open a web browser and go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to view the application.
 
 ### Usage
 
-1. Open `index.html` in a web browser.
-
-2. Use the provided buttons to interact with the merchant list.
-
-3. Create, edit, or delete merchants as needed.
+1. Open `merchants_list.html` in a web browser from [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
+        - Get list merchants.
+        - Create, edit, or delete merchants as needed.
 
 ### Contributing
 
